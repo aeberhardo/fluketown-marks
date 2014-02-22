@@ -1,0 +1,137 @@
+/* Google Webfont. Muss mit der Font-Family in der nächsten Regel übereinstimmen */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:700,400,700italic,400italic');
+
+
+/* Font-Family des Original Bootstrap CSS überschreiben */
+body,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;   
+}
+
+
+/* Dotted outline entfernen. */
+/* Gemäss: http://code.hyperspatial.com/1533/remove-bootstrap-dotted-outline */
+*:hover,
+*:active,
+*:focus {
+    outline: 0!important;
+}
+
+/* Vertikale Scrollbar immer anzeigen. */
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+/**
+ * Navbar Search-Icon:
+ * Angepasst gemäss: http://www.skem9.com/tutorials/28/BootstrapV2Searchiconinnavbarsearch.html
+*/
+.navbar-search div {
+    position:relative;
+}
+
+.navbar-inner .navbar-search .search-query {
+    padding-left: 28px;
+}
+
+/* Bei navbar-inverse: 29px, sonst 28px */
+.navbar-inner .navbar-search .search-query:focus,
+.navbar-inner .navbar-search .search-query.focused {
+    padding-left: 29px;
+}
+
+.navbar-search i.icon-search {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+}
+
+/**
+ * Thumbnails der Bookmarks.
+ */
+.bookmark-thumbnail {
+    width: 160px;
+    height: 90px;
+    margin-right: 30px !important;
+    
+    /* Schattenwurf. Wenn kein "!important" angegeben wird,
+     * wird der Schattenwurf beim Mouseover ausgeblendet. */
+    box-shadow: 5px 5px 8px #bbb;
+}
+
+/**
+ * Style für mandatory field (Asterisk).
+ */
+.mandatory {
+  color: red;
+  font-weight: bolder;
+}
+
+/**
+ * Kein Margin. Z.B. bei forms.
+ */
+.no-margins {
+    margin: 0px;
+}
+
+/**
+ * Inhalt nicht umbrechen, sondern mit Ellipsis "..." abkürzen.
+ */
+.ellipsis {
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**
+ * Style für Feature-Tabelle auf der Login-Seite.
+ * Es werden alle <td> Child-Elemente einer.feature-Table gestyled.
+ */
+.feature > tbody > tr > td {
+    border-top: 0px;
+    vertical-align: middle;
+    padding-bottom: 20px;
+}
+
+/**
+ * Gibt an, dass beim Mouseover der Default-Cursor (Pfeil) angezeigt werden soll.
+ */
+.cursor-default {
+    cursor: default;
+}
+
+/**
+ * Well mit transparentem Hintergrund.
+ */
+.well.well-transparent{
+    background-color:transparent;
+    box-shadow: 5px 5px 8px #bbb;
+}
+
+/**
+ * Durch highlight.js werden Spans mit .highlight-Klasse innerhalb von
+ * .highlightable-Containern erzeugt. Hier kann die Farbe konfiuriert werden.
+ */
+.highlightable .highlight{
+  background-color: lemonchiffon;
+}
+
+/**
+ * Standardmässig sind Labels und Badges in bold.
+ */
+.label, .badge {
+  font-weight: normal;
+  text-shadow: none;
+}
+
+/**
+ * Fix für Chrome: Placeholder in
+ * Search-Box ist nicht vertikal zentriert.
+ */
+.navbar-search .search-query {
+  line-height: normal;
+}

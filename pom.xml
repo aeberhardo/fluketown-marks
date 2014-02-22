@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.aeberhardo</groupId>
+    <artifactId>marks</artifactId>
+    <version>1.5.0</version>
+    <name>marks</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- http://jira.codehaus.org/browse/MRESOURCES-99 --> 
+        <timestamp>${maven.build.timestamp}</timestamp> 
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources-id</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/marks</outputDirectory>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <encoding>UTF-8</encoding>
+                            <nonFilteredFileExtensions>
+                                <nonFilteredFileExtension>sqlite</nonFilteredFileExtension>
+                            </nonFilteredFileExtensions>
+                            <resources>
+                                
+                                <!-- Resources, welche ungefiltert kopiert werden -->
+                                <resource>
+                                    <filtering>false</filtering>
+                                    <directory>.</directory>
+                                    <excludes>
+                                        <!-- Verzeichnisse excluden -->
+                                        <exclude>nbproject/**</exclude>
+                                        <exclude>target/**</exclude>
+                                        <exclude>application/config/local/**</exclude>
+                                        <exclude>application/config/test/**</exclude>
+                                        <exclude>application/tests/**</exclude>
+
+                                        <!-- Inhalt von Verzeichnis excluden -->
+                                        <!--
+                                        <exclude>download/**/*</exclude>
+                                        -->
+
+                                        <!-- Einzelne Dateien excluden -->
+                                        <exclude>pom.xml</exclude>
+                                        <exclude>assembly.xml</exclude>
+                                        <exclude>artisan-local-env.sh</exclude>
+                                        <exclude>artisan-test-env.sh</exclude>
+                                    </excludes>
+                                </resource>
+                                
+                                <!-- Resources, welche gefiltert und danach kopiert werden -->
+                                <resource>
+                                    <filtering>true</filtering>
+                                    <directory>.</directory>
+                                    <includes>
+                                        <include>README</include>
+                                        <include>application/config/application.php</include>
+                                        <include>application/config/database.php</include>
+                                        <include>application/config/my.php</include>
+                                        <include>sh/linux/update_thumbs.conf</include>
+                                    </includes>
+                                </resource>
+                            </resources>              
+                        </configuration>            
+                    </execution>
+                </executions>
+            </plugin>            
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly-id</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

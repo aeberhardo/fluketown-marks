@@ -1,0 +1,90 @@
+Voraussetzungen
+===============
+
+Installation
+------------
+
+Alle Dateien in diesem Verzeichnis auf das Zielsystem kopieren:
+
+$ scp * pi@192.168.0.10:~/tmp/marks
+
+Im Zielsystem einloggen und alle kopierten Dateien ausführbar machen:
+
+$ chmod +x *
+
+
+PhantomJS 1.7.0 installieren (empfohlen)
+----------------------------------------
+
+$ cd /tmp
+$ git clone https://github.com/piksel/phantomjs-raspberrypi.git
+$ sudo cp phantomjs-raspberrypi/bin/phantomjs /bin
+
+Kontrolle:
+
+$ phantomjs -v
+1.7.0
+
+Temp Dateien löschen:
+
+$ cd && rm -rf /tmp/phantomjs-raspberrypi
+
+
+PhantomJS 1.8.1 installieren (nicht empfohlen)
+----------------------------------------------
+
+$ cd /tmp
+$ git clone https://github.com/aeberhardo/phantomjs-linux-armv6l.git
+$ cd phantomjs-linux-armv6l
+$ bunzip2 *.bz2
+$ tar xf *.tar
+$ sudo cp phantomjs-1.8.1-linux-armv6l/bin/phantomjs /bin
+
+Kontrolle:
+
+$ phantomjs -v
+1.8.1
+
+Temp Dateien löschen:
+
+$ cd && rm -rf /tmp/phantomjs-linux-armv6l
+
+
+Fonts für PhantomJS konfigurieren
+---------------------------------
+
+$ cd /usr/share
+$ sudo mv fonts fonts.bak
+$ sudo mkdir fonts
+$ sudo apt-get install --reinstall ttf-mscorefonts-installer
+
+$ sudo rm /usr/share/fonts/truetype/msttcorefonts/andalemo.ttf
+$ sudo rm /usr/share/fonts/truetype/msttcorefonts/Andale_Mono.ttf
+
+$ sudo fc-cache -rv
+
+
+ImageMagick installieren
+------------------------
+
+$ sudo apt-get install imagemagick
+
+
+FTP installieren
+----------------
+
+$ sudo apt-get install ftp
+
+
+Ausführen im Hintergrund
+========================
+
+Um das Update-Script im Hintergrund laufen zu lassen,
+wird das Script zuerst normal gestartet und das FTP-Passwort eingegeben.
+Danach wird es in den Hintergrund gesetzt.
+
+$ ./update_thumbs.sh
+
+Ctrl+z
+
+$ bg
