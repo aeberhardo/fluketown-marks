@@ -1,4 +1,4 @@
-fluketown/marks
+fluketown-marks
 ===============
 
 Online bookmarks manager. Written in Laravel 3.2.13.
@@ -11,8 +11,10 @@ Symlink erstellen auf public-Verzeichnis in htdocs.
 
 Beispiel: Symlink direkt zum public-Verzeichnis innerhalb des lokalen Git-Repos erstellen:
 
+<pre>
  I:\dev\server\xampp\htdocs>mklink /D mylaravel "I:\dev\repo\aeberhardo\php\LaravelTest\public"
  symbolische Verknüpfung erstellt für mylaravel <<===>> I:\dev\repo\aeberhardo\php\LaravelTest\public
+</pre>
 
 Nun kann via http://localhost/mylaravel auf die Seite zugegriffen werden.
 
@@ -70,8 +72,9 @@ Artisan
 PATH erweitern
 --------------
 
+<pre>
 $ export PATH=$PATH:/cygdrive/i/dev/server/xampp/php
-
+</pre>
 
 Key erzeugen
 ------------
@@ -80,20 +83,22 @@ In "I:\dev\repo\aeberhardo\php\LaravelTest\application\config\application.php"
 den "key" auf einen leeren String setzen. Danach die folgenden Commands in
 einer Shell ausführen:
 
+<pre>
 $ pwd
 /cygdrive/i/dev/repo/aeberhardo/php/LaravelTest
 
 $ php artisan key:generate
 Configuration updated with secure key!
-
+</pre>
 
 PHPUnit-Tests ausführen
 -----------------------
 
 PHPUnit muss installiert sein.
 
+<pre>
 $ php artisan test
-
+</pre>
 
 
 MySQL
@@ -102,13 +107,17 @@ MySQL
 Verbinden
 ---------
 
+<pre>
 I:\dev\server\xampp\mysql\bin>mysql -uroot <dbname>
+</pre>
 
 oder
 
+<pre>
 I:\dev\server\xampp\mysql\bin>mysql --user=root --password= <dbname>
+</pre>
 
-
+<pre>
 mysql> show tables;
 +------------------------+
 | Tables_in_urlshortener |
@@ -117,29 +126,32 @@ mysql> show tables;
 | urls                   |
 +------------------------+
 2 rows in set (0.00 sec)
-
+</pre>
 
 Autocommit ausschalten
 ----------------------
 
+<pre>
 mysql> set autocommit=0;
-
+</pre>
 
 Timezone setzen
 ===============
 
 In application.php die Zeitzone wechseln von UTC zu
 
+<pre>
 'timezone' => 'Europe/Zurich',
-
+</pre>
 
 Application Index
 =================
 
 In application.php: Schönere URLs durch setzen von
 
+<pre>
 'index' => ''
-
+</pre>
 
 Sessions
 ========
@@ -147,8 +159,9 @@ Sessions
 Soll eine Session beim Schliessen des Browsers beendet werden, so ist in
 session.php zu setzen:
 
+<pre>
 'expire_on_close' => true,
-
+</pre>
 
 Laravel Bundles installieren
 ============================
@@ -175,8 +188,9 @@ Dies ist gleichbedeutend wie: $ php artisan testdata:insert
 Maven
 =====
 
+<pre>
 $ mvn clean package clean package -Dapp.key=<my_key> -Dimg.path='../apps/marks-images' -Dimg.url='marks-images' -Ddb.host=localhost -Ddb.database=<my_db_name> -Ddb.username=<my_db_username> -Ddb.password=<my_db_password> -Dftp.host=<my_ftp_host> -Dftp.user=<my_ftp_user> -Dftp.dir=apps/marks-images -Djson.url=http://<my_domain>/marks/bookmarks/missing_thumbs_json
-
+</pre>
 
 Git
 ===
@@ -192,7 +206,7 @@ Thumbnails
 ==========
 
 Thumbnails müssen so auf dem Server abgelegt werden, dass sie direkt mittels einer URL erreichbar sind.
-Beispielsweise 'http://www.fluketown.ch/marks-images/123-thumb.jpg'.
+Beispielsweise 'http://www.example.com/marks-images/123-thumb.jpg'.
 Falls der physische Ablageort des Thumbnail-Verzeichnisses nicht im Document-Root ist, so kann ein Symlink
 erstellt werden.
 
