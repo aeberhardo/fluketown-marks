@@ -11,10 +11,10 @@ Symlink erstellen auf public-Verzeichnis in htdocs.
 
 Beispiel: Symlink direkt zum public-Verzeichnis innerhalb des lokalen Git-Repos erstellen:
 
-<pre>
+```
  I:\dev\server\xampp\htdocs>mklink /D mylaravel "I:\dev\repo\aeberhardo\php\LaravelTest\public"
  symbolische Verknüpfung erstellt für mylaravel <<===>> I:\dev\repo\aeberhardo\php\LaravelTest\public
-</pre>
+```
 
 Nun kann via http://localhost/mylaravel auf die Seite zugegriffen werden.
 
@@ -182,14 +182,14 @@ wie folgt im Browser ausgeführt werden:
 
 http://localhost/marks/artisan/testdata.insert
 
-Dies ist gleichbedeutend wie: $ php artisan testdata:insert
+Dies ist gleichbedeutend wie: <code>$ php artisan testdata:insert</code>
 
 
 Maven
 =====
 
 <pre>
-$ mvn clean package clean package -Dapp.key=<my_key> -Dimg.path='../apps/marks-images' -Dimg.url='marks-images' -Ddb.host=localhost -Ddb.database=<my_db_name> -Ddb.username=<my_db_username> -Ddb.password=<my_db_password> -Dftp.host=<my_ftp_host> -Dftp.user=<my_ftp_user> -Dftp.dir=apps/marks-images -Djson.url=http://<my_domain>/marks/bookmarks/missing_thumbs_json
+$ mvn clean package clean package -Dapp.key={my_key} -Dimg.path='../apps/marks-images' -Dimg.url='marks-images' -Ddb.host=localhost -Ddb.database={my_db_name} -Ddb.username={my_db_username} -Ddb.password={my_db_password} -Dftp.host={my_ftp_host} -Dftp.user={my_ftp_user} -Dftp.dir=apps/marks-images -Djson.url=http://{my_domain}/marks/bookmarks/missing_thumbs_json
 </pre>
 
 Git
