@@ -12,19 +12,8 @@ use ch\aeberhardo\url\ThumbnailURLHelper;
             <b>{{ e($bookmark->title) }}</b>
         </div>
 
-        <div class="hidden-phone ellipsis">
-            {{ HTML::link($bookmark->url, $bookmark->url) }}
-        </div>
-
-        <div class="visible-phone ellipsis">
-            {{ HTMLFavicon::faviconImage($bookmark->url) }}
-            {{ HTML::link($bookmark->url, $bookmark->url) }}
-        </div>
-
-        <div class="hidden-phone">
-            <br/>
-            {{ HTMLFavicon::faviconImage($bookmark->url) }}
-            <span class="pull-right"><i class="icon-edit"></i> {{ HTML::link_to_action('bookmarks@edit', 'edit', array($bookmark->id)) }}</span>
+        <div>
+            <div class="pull-right">&nbsp;&nbsp;<i class="icon-edit"></i> {{ HTML::link_to_action('bookmarks@edit', 'edit', array($bookmark->id)) }}</div> <div class="ellipsis">{{ HTMLFavicon::faviconImage($bookmark->url) }} {{ HTML::link($bookmark->url, $bookmark->url) }}</div>
         </div>
 
     </div>
