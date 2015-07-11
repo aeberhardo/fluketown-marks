@@ -1,7 +1,7 @@
 fluketown-marks
 ===============
 
-Online bookmarks manager. Written in Laravel 3.2.13.
+Online bookmarks manager. Implemented using Laravel 3.2.13.
 
 
 Installation in XAMPP
