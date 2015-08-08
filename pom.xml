@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.aeberhardo</groupId>
     <artifactId>marks</artifactId>
-    <version>1.6.1-SNAPSHOT</version>
+    <version>1.7.0-SNAPSHOT</version>
     <name>marks</name>
     <packaging>pom</packaging>
 
