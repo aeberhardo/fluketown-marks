@@ -239,7 +239,13 @@ class Markdown_Parser {
 	var $predef_titles = array();
 
 
-	function Markdown_Parser() {
+	# PHP4 style constructor for compatibility
+	public function Markdown_Parser() {
+		self::__construct();
+	}
+
+	# PHP5 style constructor
+	public function __construct() {
 	#
 	# Constructor function. Initialize appropriate member variables.
 	#
@@ -1692,8 +1698,14 @@ class MarkdownExtra_Parser extends Markdown_Parser {
 	# Predefined abbreviations.
 	var $predef_abbr = array();
 
+	# PHP4 style constructor for compatibility
+	public function MarkdownExtra_Parser() {
+		self::__construct();
+	}
 
-	function MarkdownExtra_Parser() {
+
+	# PHP5 style constructor
+	public function __construct() {
 	#
 	# Constructor function. Initialize the parser object.
 	#
